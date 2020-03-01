@@ -7,7 +7,7 @@
 	<H3>WELCOME TO WH USER TYPE DATA</H3>
 	<c:choose>
 		<c:when test="${!empty list }">
-		<a href="excel">Excel Export</a> | <a href="pdf">PDF Export</a>
+	<a href="excel"><img src="../resources/images/Excel.png" height="40" width="40"></a>    <a href="pdf"><img src="../resources/images/pdf.png" height="40" width="40"/></a>   <a href="charts"><img src="../resources/images/chart.png" height="40" width="40"/></a>
 			<table border="1">
 				<tr>
 					<th>ID</th>
@@ -32,9 +32,9 @@
 						<td>${ob.userIdType }</td>
 						<td>${ob.ifOther }</td>
 						<td>${ob.idNum }</td>
-						<td><a href="delete?wid=${ob.whId}">DELETE</a></td>
-						<td><a href="edit?wid=${ob.whId}">EDIT</a></td>
-						<td><a href="view?wid=${ob.whId}">VIEW</a></td>
+						<td><a href="delete?wid=${ob.whId}"><img src="../resources/images/delete.jpg" height="30" width="30"/></a></td>
+						<td><a href="edit?wid=${ob.whId}"><img src="../resources/images/edit.png" height="20" width="20"/></a></td>
+						<td><a href="view?wid=${ob.whId}"><img src="../resources/images/view.jpg" height="30" width="30"/></a></td>
 					</tr>
 				</c:forEach>
 			</table>

@@ -43,4 +43,12 @@ public class OrderMethodDaoImpl implements IOrderMethodDao {
 	public void updateOrderMethod(OrderMethod ob) {
 		ht.update(ob);
 	}
+	
+	@SuppressWarnings({ "deprecation", "unchecked" })
+	@Override
+	public List<Object[]> getOrderTypeCount() {
+	String hql=" select orderType,Count(orderType) from "+
+				" in.nit.model.OrderMethod group by orderType ";
+		return (List<Object[]>) ht.find(hql);
+	}
 }

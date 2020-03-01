@@ -17,6 +17,8 @@ import
 org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import
 org.springframework.web.servlet.view.InternalResourceViewResolver;
 
@@ -27,7 +29,7 @@ org.springframework.web.servlet.view.InternalResourceViewResolver;
 @PropertySource("classpath:app.properties")
 //all layered classes common package name
 @ComponentScan("in.nit")
-public class AppConfig {
+public class AppConfig implements WebMvcConfigurer{
 	@Autowired
 	private Environment env;
 	//1. DataSource
@@ -87,5 +89,11 @@ public class AppConfig {
 	@Bean
 	public CommonsMultipartResolver multipartResolver() {
 		return new CommonsMultipartResolver();
+	}
+	
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+	
+		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 	}
 }

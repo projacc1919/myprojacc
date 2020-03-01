@@ -5,9 +5,10 @@ import java.util.List;
 import in.nit.model.WhUserType;
 
 public interface IWhUserTypeDao {
-	Integer saveWhUserType(WhUserType ob);
-	List<WhUserType> getAllWhUserType();
-	void deleteWhUserType(Integer id);
-	WhUserType getOneWhUserType(Integer id);
-	void updateWhUserType(WhUserType ob);
+	public Integer saveWhUserType(WhUserType ob);
+	public List<WhUserType> getAllWhUserType();
+	public void deleteWhUserType(Integer id);
+	public WhUserType getOneWhUserType(Integer id);
+	public void updateWhUserType(WhUserType ob);
+	public List<Object[]> getWhUserIdTypeCount();
 }

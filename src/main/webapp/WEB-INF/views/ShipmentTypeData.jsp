@@ -8,7 +8,7 @@
 	
 	<c:choose>
 		<c:when test="${!empty list }">
-	<a href="excel">Excel Export</a> | <a href="pdf">PDF Export</a>
+	<a href="excel"><img src="../resources/images/Excel.png" height="40" width="40"></a>    <a href="pdf"><img src="../resources/images/pdf.png" height="40" width="40"/></a>   <a href="charts"><img src="../resources/images/chart.png" height="40" width="40"/></a>
 			<table border="1">
 				<tr>
 					<th>ID</th>
@@ -29,9 +29,9 @@
 						<td>${ob.enbShip}</td>
 						<td>${ob.shipGrade}</td>
 						<td>${ob.shipDesc}</td>
-						<td><a href="delete?sid=${ob.shipId}">DELETE</a></td>
-						<td><a href="edit?sid=${ob.shipId}">EDIT</a></td>
-						<td><a href="view?sid=${ob.shipId}">VIEW</a></td>
+						<td><a href="delete?sid=${ob.shipId}"><img src="../resources/images/delete.jpg" height="30" width="30"/></a></td>
+						<td><a href="edit?sid=${ob.shipId}"><img src="../resources/images/edit.png" height="20" width="20"/></a></td>
+						<td><a href="view?sid=${ob.shipId}"><img src="../resources/images/view.jpg" height="30" width="30"/></a></td>
 					</tr>
 				</c:forEach>
 			</table>

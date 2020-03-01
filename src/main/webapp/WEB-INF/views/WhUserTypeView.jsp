@@ -4,7 +4,7 @@
 <html>
 <body>
 	<H3>WELCOME TO WH USER TYPE VIEW PAGE</H3>
-	<a href="excel?id=${ob.whId}">Excel Export</a>|<a href="pdf?id=${ob.whId}">PDF Export</a>
+	<a href="excel?id=${ob.whId}"><img src="../resources/images/Excel.png" height="40" width="40"></a>   <a href="pdf?id=${ob.whId}"><img src="../resources/images/pdf.png" height="40" width="40"></a>
 	<table border="1">
 		<tr>
 			<th>ID</th>

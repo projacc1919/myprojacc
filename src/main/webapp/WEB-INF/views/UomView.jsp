@@ -5,7 +5,7 @@
 <body>
 	<H3>WELCOME TO UOM VIEW PAGE</H3>
 	
-	<a href="excel?id=${ob.uomId}">Excel Export</a> | <a href="pdf?id=${ob.uomId}">PDF Export</a>
+	<a href="excel?id=${ob.uomId}"><img src="../resources/images/Excel.png" height="40" width="40"></a>   <a href="pdf?id=${ob.uomId}"><img src="../resources/images/pdf.png" height="40" width="40"></a>
 	<table border="1">
 	
 		<tr>

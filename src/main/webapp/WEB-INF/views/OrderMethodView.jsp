@@ -4,7 +4,7 @@
 <html>
 <body>
 	<H3>WELCOME TO ORDER METHOD VIEW PAGE</H3>
-	<a href="excel?id=${ob.orderId }">Excel Export</a>|<a href="pdf?id=${ob.orderId }">PDF Export</a>
+	<a href="excel?id=${ob.orderId }"><img src="../resources/images/Excel.png" height="40" width="40"></a>   <a href="pdf?id=${ob.orderId }"><img src="../resources/images/pdf.png" height="40" width="40"></a>
 	<table border="1">
 		<tr>
 			<th>ID</th>
