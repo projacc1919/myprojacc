@@ -31,10 +31,12 @@ public class PartPdfView extends AbstractPdfView {
 		
 		List<Part> list=(List<Part>) model.get("list");
 		
-		PdfPTable t=new PdfPTable(6);
+		PdfPTable t=new PdfPTable(8);
 		t.addCell("ID");
 		t.addCell("CODE");
-		t.addCell("DIMENSION");
+		t.addCell("LENGTH");
+		t.addCell("WIDTH");
+		t.addCell("HEIGHT");
 		t.addCell("COST");
 		t.addCell("CURRENCY");
 		t.addCell("NOTE");
@@ -42,7 +44,9 @@ public class PartPdfView extends AbstractPdfView {
 		for(Part pt:list) {
 			t.addCell(pt.getPartId().toString());
 			t.addCell(pt.getPartCode());
-			t.addCell(pt.getPartDim().toString());
+			t.addCell(pt.getPartLen().toString());
+			t.addCell(pt.getPartWid().toString());
+			t.addCell(pt.getPartHgt().toString());
 			t.addCell(pt.getBaseCost().toString());
 			t.addCell(pt.getBaseCurr());
 			t.addCell(pt.getPartDesc());

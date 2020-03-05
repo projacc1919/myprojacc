@@ -5,45 +5,132 @@
 
 <html>
 <body>
+	<%@include file="UserMenu.jsp"%>
 
-	<h3>Welcome to Shipment Type Register Page</h3>
+	<div class="container">
 
-	<form:form action="save" method="post" modelAttribute="shipmentType">
-		<pre>
+		<div class="card">
 
-Shipment Mode:
-<form:select path="shipMode">
-	<form:option value="">-select-</form:option>
-	<form:option value="Air">Air</form:option>
-	<form:option value="Truck">Truck</form:option>
-	<form:option value="Ship">Ship</form:option>
-	<form:option value="Train">Train</form:option>
-</form:select>
+			<div
+				class="card-header bg-primary text-center text-white text-uppercase">
+				<h3>Welcome to Shipment Type Register Page</h3>
+			</div>
 
-Shipment Code:
-<form:input path="shipCode" />
+			<div class="card-body">
+				<form:form action="save" method="post" modelAttribute="shipmentType">
 
-Enable Shipment:
-<form:select path="enbShip">
-	<form:option value="">-select-</form:option>
-	<form:option value="Yes">Yes</form:option>
-	<form:option value="No">No</form:option>
-</form:select>
+					<div class="row">
+						<div class="col-4">
+							<label for="shipMode">Shipment Mode</label>
+						</div>
+						<div class="col-4">
+						<form:select path="shipMode" class="form-control">
+							<form:option value="">-select-</form:option>
+							<form:option value="Air">Air</form:option>
+							<form:option value="Truck">Truck</form:option>
+							<form:option value="Ship">Ship</form:option>
+							<form:option value="Train">Train</form:option>
+						</form:select>
+						</div>
+					<div class="col-4">
+						<!-- error message -->
+					</div>
+					</div>
 
-Shipment Grade:
-<form:radiobutton path="shipGrade" value="A" />A
-<form:radiobutton path="shipGrade" value="B" />B
-<form:radiobutton path="shipGrade" value="C" />C
+					<div class="row">
 
-Description:
-<form:textarea path="shipDesc" />
+						<div class="col-4">
+							<label for="shipCode">Shipment Code</label>
+						</div>
 
-<input type=submit value="CREATE SHIPMENT" />
-</pre>
+						<div class="col-4">
+							<form:input path="shipCode" class="form-control" />
+						</div>
 
-	
+						<div class="col-4">
+							<!-- error message -->
+						</div>
 
-	</form:form>
-	${message}
+					</div>
+
+					<div class="row">
+
+						<div class="col-4">
+							<label for="enbShip">Enable Shipment</label>
+						</div>
+
+						<div class="col-4">
+							<form:select path="enbShip" class="form-control">
+								<form:option value="">-select-</form:option>
+								<form:option value="Yes">Yes</form:option>
+								<form:option value="No">No</form:option>
+							</form:select>
+						</div>
+
+						<div class="col-4">
+							<!-- error message -->
+						</div>
+
+					</div>
+
+					<div class="row">
+
+						<div class="col-4">
+							<label for="shipGrade">Shipment Grade</label>
+						</div>
+
+						<div class="col-4">
+							<form:radiobutton path="shipGrade" value="A" />
+							A
+							<form:radiobutton path="shipGrade" value="B" />
+							B
+							<form:radiobutton path="shipGrade" value="C" />
+							C
+						</div>
+
+						<div class="col-4">
+							<!-- error message -->
+						</div>
+
+					</div>
+
+					<div class="row">
+
+						<div class="col-4">
+							<label for="shipDesc">Description</label>
+						</div>
+
+						<div class="col-4">
+							<form:textarea path="shipDesc" class="form-control" />
+						</div>
+
+						<div class="col-4">
+							<!-- error message -->
+						</div>
+
+					</div>
+
+
+
+					<div class="row">
+						<div class="col-4"></div>
+						<div class="col-4">
+							<input type=submit value="Create" class="btn btn-success" /> <input
+								type="reset" value="Clear" class="btn btn-danger" />
+						</div>
+					</div>
+
+				</form:form>
+			</div>
+			<!-- card-body end -->
+			<c:if test="${!empty message }">
+				<div class="card-footer bg-info text-white text-center">
+					<b>${message}</b>
+				</div>
+			</c:if>
+		</div>
+		<!-- card end -->
+	</div>
+	<!-- container end -->
 </body>
 </html>

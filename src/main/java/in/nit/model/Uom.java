@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="uomtab")
-public class Uom {
+public final class Uom {
 	
 	@Id
 	@GeneratedValue
@@ -23,6 +23,14 @@ public class Uom {
 	public Uom() {
 		super();
 	}
+
+	
+	public Uom(Integer uomId) {
+		super();
+		this.uomId = uomId;
+	}
+
+
 
 	public Integer getUomId() {
 		return uomId;
@@ -56,11 +64,13 @@ public class Uom {
 		this.uomDesc = uomDesc;
 	}
 
+
 	@Override
 	public String toString() {
 		return "Uom [uomId=" + uomId + ", uomType=" + uomType + ", uomModel=" + uomModel + ", uomDesc=" + uomDesc + "]";
 	}
-	
+
+
 	
 
 }

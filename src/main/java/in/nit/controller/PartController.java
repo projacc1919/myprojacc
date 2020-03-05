@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import in.nit.model.Part;
+import in.nit.model.Uom;
 import in.nit.service.IPartService;
+import in.nit.service.IUomService;
 import in.nit.view.PartExcelView;
 import in.nit.view.PartPdfView;
 
@@ -23,10 +25,19 @@ public class PartController {
 
 	@Autowired
 	private IPartService service;
+	
+	@Autowired
+	private IUomService uomService;
 
+	private void commonUI(Model model) {
+		List<Uom> uomList=uomService.getAllUoms();
+		model.addAttribute("uomList", uomList);
+	}
+	
 	@RequestMapping("/register")
 	public String showReg(Model model) {
 		model.addAttribute("part", new Part());
+		commonUI(model);
 		return "PartRegister";
 	}
 
@@ -34,6 +45,8 @@ public class PartController {
 	public String savePart(@ModelAttribute Part part,Model model) {
 		Integer id=service.savePart(part);
 		String message="Part '"+id+"' is saved";
+		model.addAttribute("part", new Part());
+		commonUI(model);
 		model.addAttribute("message",message);
 		return "PartRegister";
 
@@ -52,6 +65,7 @@ public class PartController {
 		service.deletePart(pid);
 		List<Part> list=service.getAllParts();
 		model.addAttribute("list",list);
+		model.addAttribute("opr","DEL");
 		model.addAttribute("message","Part '"+pid+"' deleted");
 		return "PartData";
 	}

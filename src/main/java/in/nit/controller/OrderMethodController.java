@@ -61,6 +61,7 @@ public class OrderMethodController {
 		service.deleteOrderMethod(id);
 		String message="order method '"+id+"' deleted";
 		model.addAttribute("message", message);
+		model.addAttribute("opr","DEL");
 		List<OrderMethod> list=service.getAllOrderMethods();
 		model.addAttribute("list",list);
 		return "OrderMethodData";

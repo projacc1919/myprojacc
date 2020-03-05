@@ -1,39 +1,39 @@
 package in.nit.model;
 
-import java.util.List;
 
-import javax.persistence.CollectionTable;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OrderColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
-
+/**
+ * @author Sumit
+ *
+ */
 @Entity
 @Table(name="parttab")
-public class Part {
+public final class Part {
 	
 	@Id
 	@GeneratedValue
-	@GenericGenerator(name="pidgen",strategy = "increment")
 	@Column(name="pid")
 	private Integer partId;
 	
 	@Column(name="pcode")
 	private String partCode;
 	
-	@ElementCollection(fetch=FetchType.EAGER)
-	@CollectionTable(name="dimtab", joinColumns = @JoinColumn(name="pid"))
-	@OrderColumn(name="pos")
-	@Column(name="pdim")
-	private List<String> partDim;
-
+	@Column(name="plen")
+	private Double partLen;
+	
+	@Column(name="pwid")
+	private Double partWid;
+	
+	@Column(name="phgt")
+	private Double partHgt;
+	
 	@Column(name="pbcost")
 	private Double baseCost;
 
@@ -42,9 +42,18 @@ public class Part {
 	
 	@Column(name="pdesc")
 	private String partDesc;
+	
+	@ManyToOne
+	@JoinColumn(name="uomidfk")
+	private Uom uomOb;
 
 	public Part() {
 		super();
+	}
+
+	public Part(Integer partId) {
+		super();
+		this.partId = partId;
 	}
 
 	public Integer getPartId() {
@@ -63,12 +72,28 @@ public class Part {
 		this.partCode = partCode;
 	}
 
-	public List<String> getPartDim() {
-		return partDim;
+	public Double getPartLen() {
+		return partLen;
 	}
 
-	public void setPartDim(List<String> partDim) {
-		this.partDim = partDim;
+	public void setPartLen(Double partLen) {
+		this.partLen = partLen;
+	}
+
+	public Double getPartWid() {
+		return partWid;
+	}
+
+	public void setPartWid(Double partWid) {
+		this.partWid = partWid;
+	}
+
+	public Double getPartHgt() {
+		return partHgt;
+	}
+
+	public void setPartHgt(Double partHgt) {
+		this.partHgt = partHgt;
 	}
 
 	public Double getBaseCost() {
@@ -95,10 +120,19 @@ public class Part {
 		this.partDesc = partDesc;
 	}
 
+	public Uom getUomOb() {
+		return uomOb;
+	}
+
+	public void setUomOb(Uom uomOb) {
+		this.uomOb = uomOb;
+	}
+
 	@Override
 	public String toString() {
-		return "Part [partId=" + partId + ", partCode=" + partCode + ", partDim=" + partDim + ", baseCost=" + baseCost
-				+ ", baseCurr=" + baseCurr + ", partDesc=" + partDesc + "]";
+		return "Part [partId=" + partId + ", partCode=" + partCode + ", partLen=" + partLen + ", partWid=" + partWid
+				+ ", partHgt=" + partHgt + ", baseCost=" + baseCost + ", baseCurr=" + baseCurr + ", partDesc="
+				+ partDesc + ", uomOb=" + uomOb + "]";
 	}
 	
 	

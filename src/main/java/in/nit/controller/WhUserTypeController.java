@@ -61,6 +61,7 @@ public class WhUserTypeController {
 		service.deleteWhUserType(id);
 		String message="WH User Type '"+id+"' Deleted";
 		model.addAttribute("message",message);
+		model.addAttribute("opr","DEL");
 		List<WhUserType> list=service.getAllWhUserType();
 		model.addAttribute("list",list);
 		return "WhUserTypeData";

@@ -4,33 +4,50 @@
 <!DOCTYPE html>
 <html>
 <body>
+<%@include file="UserMenu.jsp" %>
+<div class="container">
+<div class="card">
+<div class="card-header text-white text-center bg-info">
 	<h3>WELCOME TO PART VIEW PAGE</h3>
+</div>
+<div class="card-body">
 	<a href="excel?id=${ob.partId}"><img src="../resources/images/Excel.png" height="40" width="40"></a>   <a href="pdf?id=${ob.partId}"><img src="../resources/images/pdf.png" height="40" width="40"></a>
-	<table border="1">
+	<table class="table table-hover">
 		<tr>
-			<th>ID</th>
-			<td>${ob.partId }</td>
+			<th class="text-white text-center bg-success">ID</th>
+			<td class="text-center">${ob.partId }</td>
 		</tr>
 		<tr>
-			<th>CODE</th>
-			<td>${ob.partCode }</td>
+			<th class="text-white text-center bg-success">CODE</th>
+			<td class="text-center">${ob.partCode }</td>
 		</tr>
 		<tr>
-			<th>DIMENSION</th>
-			<td>${ob.partDim }</td>
+			<th class="text-white text-center bg-success">LENGTH</th>
+			<td class="text-center">${ob.partLen }</td>
 		</tr>
 		<tr>
-			<th>COST</th>
-			<td>${ob.baseCost }</td>
+			<th class="text-white text-center bg-success">WIDTH</th>
+			<td class="text-center">${ob.partWid }</td>
 		</tr>
 		<tr>
-			<th>CURRENCY</th>
-			<td>${ob.baseCurr }</td>
+			<th class="text-white text-center bg-success">HEIGHT</th>
+			<td class="text-center">${ob.partHgt }</td>
 		</tr>
 		<tr>
-			<th>NOTE</th>
-			<td>${ob.partDesc }</td>
+			<th class="text-white text-center bg-success">COST</th>
+			<td class="text-center">${ob.baseCost }</td>
+		</tr>
+		<tr>
+			<th class="text-white text-center bg-success">CURRENCY</th>
+			<td class="text-center">${ob.baseCurr }</td>
+		</tr>
+		<tr>
+			<th class="text-white text-center bg-success">NOTE</th>
+			<td class="text-center">${ob.partDesc }</td>
 		</tr>
 	</table>
+</div> <!-- card body -->
+</div> <!-- card -->
+</div> <!-- container -->
 </body>
 </html>

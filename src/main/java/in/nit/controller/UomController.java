@@ -63,7 +63,7 @@ public class UomController {
 		service.deleteUom(id);
 		String message="UOM '"+id+"' deleted";
 		model.addAttribute("message", message);
-		
+		model.addAttribute("opr", "DEL");
 		List<Uom> list=service.getAllUoms();
 		model.addAttribute("list",list);
 		return "UomData";

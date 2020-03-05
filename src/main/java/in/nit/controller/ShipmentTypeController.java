@@ -63,6 +63,7 @@ public class ShipmentTypeController {
 		service.deleteShipmentType(id);
 		String message="Shipment '"+id+"' Deleted";
 		model.addAttribute("message",message);
+		model.addAttribute("opr", "DEL");
 		List<ShipmentType> list=service.getAllShipmentTypes();
 		model.addAttribute("list",list);
 		return "ShipmentTypeData";

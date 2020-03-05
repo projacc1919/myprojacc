@@ -35,10 +35,12 @@ public class PartExcelView extends AbstractXlsxView {
 		Row r=s.createRow(0);
 		r.createCell(0).setCellValue("ID");
 		r.createCell(1).setCellValue("CODE");
-		r.createCell(2).setCellValue("DIMENSION");
-		r.createCell(3).setCellValue("COST");
-		r.createCell(4).setCellValue("CURRENCY");
-		r.createCell(5).setCellValue("NOTE");
+		r.createCell(2).setCellValue("LENGTH");
+		r.createCell(3).setCellValue("WIDTH");
+		r.createCell(4).setCellValue("HEIGHT");
+		r.createCell(5).setCellValue("COST");
+		r.createCell(6).setCellValue("CURRENCY");
+		r.createCell(7).setCellValue("NOTE");
 	}
 	
 	private void setBody(Sheet s,List<Part> list) {
@@ -47,10 +49,12 @@ public class PartExcelView extends AbstractXlsxView {
 			Row r=s.createRow(count++);
 			r.createCell(0).setCellValue(p.getPartId());
 			r.createCell(1).setCellValue(p.getPartCode());
-			r.createCell(2).setCellValue(p.getPartDim().toString());
-			r.createCell(3).setCellValue(p.getBaseCost());
-			r.createCell(4).setCellValue(p.getBaseCurr());
-			r.createCell(5).setCellValue(p.getPartDesc());
+			r.createCell(2).setCellValue(p.getPartLen());
+			r.createCell(3).setCellValue(p.getPartWid());
+			r.createCell(4).setCellValue(p.getPartHgt());
+			r.createCell(5).setCellValue(p.getBaseCost());
+			r.createCell(6).setCellValue(p.getBaseCurr());
+			r.createCell(7).setCellValue(p.getPartDesc());
 		}
 	}
 
