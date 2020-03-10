@@ -42,6 +42,15 @@
 			<td class="text-center">${ob.baseCurr }</td>
 		</tr>
 		<tr>
+			<th class="text-white text-center bg-success">UOM</th>
+			<td class="text-center">${ob.uomOb.uomModel }</td>
+		</tr>
+		<tr>
+			<th class="text-white text-center bg-success">ORDER METHOD</th>
+			<td class="text-center">${ob.omSaleOb.orderCode }</td>
+			<td class="text-center">${ob.omPurchaseOb.orderCode }</td>
+		</tr>
+		<tr>
 			<th class="text-white text-center bg-success">NOTE</th>
 			<td class="text-center">${ob.partDesc }</td>
 		</tr>

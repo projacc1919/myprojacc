@@ -51,4 +51,14 @@ public class OrderMethodDaoImpl implements IOrderMethodDao {
 				" in.nit.model.OrderMethod group by orderType ";
 		return (List<Object[]>) ht.find(hql);
 	}
+	
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	@Override
+	public List<Object[]> getOrderIdAndCode(String mode) {
+	
+		String hql="select orderId,orderCode from in.nit.model.OrderMethod "
+				+" where orderMode=?0 ";
+		List<Object[]> list=(List<Object[]>) ht.find(hql,mode);
+		return list;
+	}
 }

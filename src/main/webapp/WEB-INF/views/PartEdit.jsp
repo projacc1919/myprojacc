@@ -57,22 +57,6 @@
 
 					<div class="row">
 						<div class="col-4">
-							<label for="uomOb.uomId">UOM</label>
-						</div>
-						<div class="col-4">
-							<form:select path="uomOb.uomId" class="form-control">
-								<form:option value="">-SELECT-</form:option>
-								<form:options items="${uomList }" itemValue="uomId"
-									itemLabel="uomModel" />
-							</form:select>
-						</div>
-						<div class="col-4">
-							<!-- error message -->
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-4">
 							<label for="">Base Cost</label>
 						</div>
 						<div class="col-4">
@@ -101,6 +85,43 @@
 							<!-- error message -->
 						</div>
 					</div>
+
+
+					<div class="row">
+						<div class="col-4">
+							<label for="uomOb.uomId">UOM</label>
+						</div>
+						<div class="col-4">
+							<form:select path="uomOb.uomId" class="form-control">
+								<form:option value="">-select-</form:option>
+								<form:options items="${uomMap }" />
+							</form:select>
+						</div>
+						<div class="col-4">
+							<!-- error message -->
+						</div>
+					</div>
+
+
+					<div class="row">
+						<div class="col-4">
+							<label for="omSaleOb.orderId">ORDER METHOD</label>
+						</div>
+						<div class="col-4">
+							<form:select path="omSaleOb.orderId" class="form-control">
+								<form:option value="">-select-</form:option>
+								<form:options items="${omSaleMap }" />
+							</form:select>
+						</div>
+							<form:select path="omPurchaseOb.orderId" class="form-control">
+								<form:option value="">-select-</form:option>
+								<form:options items="${omPurMap }" />
+							</form:select>
+						<div class="col-4">
+							<!-- error message -->
+						</div>
+					</div>
+
 
 
 					<div class="row">

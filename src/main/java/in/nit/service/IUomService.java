@@ -11,4 +11,6 @@ public interface IUomService {
 	public void deleteUom(Integer id);
 	public Uom getOneUom(Integer id);
 	public void updateUom(Uom ob);
-	public List<Object[]> getUomTypeCount();}
+	public List<Object[]> getUomTypeCount();
+	public List<Object[]> getuomIdAnduomModel();
+}

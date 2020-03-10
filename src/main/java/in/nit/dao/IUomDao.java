@@ -12,4 +12,5 @@ public interface IUomDao {
 	public Uom getOneUom(Integer id);
 	public void updateUom(Uom ob);
 	public List<Object[]> getUomTypeCount();
+	public List<Object[]> getuomIdAnduomModel();
 }

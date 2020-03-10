@@ -6,7 +6,7 @@
 <html>
 <body>
 	<%@include file="UserMenu.jsp"%>
-	<div card="container">
+	<div class="container">
 		<div class="card">
 			<div class="card-header text-center text-white bg-info">
 				<H3>WELCOME TO PART REGISTRATION PAGE</H3>
@@ -79,9 +79,28 @@
 						</div>
 						<div class="col-4">
 							<form:select path="uomOb.uomId" class="form-control">
-								<form:option value="">-SELECT-</form:option>
-								<form:options items="${uomList }" itemValue="uomId"
-									itemLabel="uomModel" />
+								<form:option value="">-select-</form:option>
+								<form:options items="${uomMap }" />
+							</form:select>
+						</div>
+						<div class="col-4">
+							<!-- error message -->
+						</div>
+					</div>
+
+
+					<div class="row">
+						<div class="col-4">
+							<label for="omSaleOb.orderId">ORDER METHOD</label>
+						</div>
+						<div class="col-4">
+							<form:select path="omSaleOb.orderId" class="form-control">
+								<form:option value="">-select-</form:option>
+								<form:options items="${omSaleMap }" />
+							</form:select>
+							<form:select path="omPurchaseOb.orderId" class="form-control">
+								<form:option value="">-select-</form:option>
+								<form:options items="${omPurMap }" />
 							</form:select>
 						</div>
 						<div class="col-4">

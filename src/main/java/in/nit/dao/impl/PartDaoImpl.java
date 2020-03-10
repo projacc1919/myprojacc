@@ -44,4 +44,5 @@ public class PartDaoImpl implements IPartDao {
 	public void updatePart(Part ob) {
 		ht.update(ob);
 	}
+	
 }

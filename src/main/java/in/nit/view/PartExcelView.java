@@ -40,7 +40,10 @@ public class PartExcelView extends AbstractXlsxView {
 		r.createCell(4).setCellValue("HEIGHT");
 		r.createCell(5).setCellValue("COST");
 		r.createCell(6).setCellValue("CURRENCY");
-		r.createCell(7).setCellValue("NOTE");
+		r.createCell(7).setCellValue("UOM");
+		r.createCell(8).setCellValue("ORDER METHOD SALE");
+		r.createCell(9).setCellValue("ORDER METHOD PURCHASE");
+		r.createCell(10).setCellValue("NOTE");
 	}
 	
 	private void setBody(Sheet s,List<Part> list) {
@@ -54,7 +57,10 @@ public class PartExcelView extends AbstractXlsxView {
 			r.createCell(4).setCellValue(p.getPartHgt());
 			r.createCell(5).setCellValue(p.getBaseCost());
 			r.createCell(6).setCellValue(p.getBaseCurr());
-			r.createCell(7).setCellValue(p.getPartDesc());
+			r.createCell(7).setCellValue(p.getUomOb().getUomModel());
+			r.createCell(8).setCellValue(p.getOmSaleOb().getOrderCode());
+			r.createCell(9).setCellValue(p.getOmPurchaseOb().getOrderCode());
+			r.createCell(10).setCellValue(p.getPartDesc());
 		}
 	}
 

@@ -26,6 +26,8 @@
 								<th>HEIGHT</th>
 								<th>COST</th>
 								<th>CURRENCY</th>
+								<th>UOM</th>
+								<th colspan="2">ORDER METHOD</th>
 								<th>NOTE</th>
 								<th colspan="3">OPERATIONS</th>
 							</tr>
@@ -37,15 +39,18 @@
 									<td>${ob.partLen }</td>
 									<td>${ob.partWid }</td>
 									<td>${ob.partHgt }</td>
-									<td>${ob.uomOb.uomModel}</td>
 									<td>${ob.baseCost }</td>
 									<td>${ob.baseCurr }</td>
+									<td>${ob.uomOb.uomModel}</td>
+									<td>${ob.omSaleOb.orderCode}</td>								
+									<td>${ob.omPurchaseOb.orderCode}</td>								
 									<td>${ob.partDesc }</td>
 									<td><a href="delete?pid=${ob.partId }"
-										class="btn btn-danger">DELETE<!-- <img src="../resources/images/delete.jpg" height="30" width="30"/> --></a></td>
+										class="btn btn-danger">DELETE</a></td>
 									<td><a href="edit?pid=${ob.partId }"
-										class="btn btn-warning">EDIT<!-- <img src="../resources/images/edit.png" height="20" width="20"/> --></a></td>
-									<td><a href="view?pid=${ob.partId }" class="btn btn-info">VIEW<!-- <img src="../resources/images/view.jpg" height="30" width="30"/> --></a></td>
+										class="btn btn-warning">EDIT</a></td>
+									<td><a href="view?pid=${ob.partId }" 
+									class="btn btn-info">VIEW</a></td>
 								</tr>
 							</c:forEach>
 						</table>
@@ -60,12 +65,12 @@
 				<c:choose>
 					<c:when test="${opr eq 'DEL' }">
 						<div class="card-footer text-white bg-danger">
-							<b ${message}></b>
+							<b>${message}</b>
 						</div>
 					</c:when>
 					<c:otherwise>
 						<div class="card-footer text-white bg-info">
-							<b ${message}></b>
+							<b>${message}</b>
 						</div>
 					</c:otherwise>
 				</c:choose>
