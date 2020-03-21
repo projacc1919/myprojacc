@@ -102,7 +102,7 @@
 
 			<c:if test="${!empty message }">
 				<div class="card-footer text-white text-center bg-info">
-					<b> ${message } </b>
+					<b>${message } </b>
 				</div>
 			</c:if>
 		</div>
