@@ -16,56 +16,61 @@ public class ShipmentTypeServiceImpl implements IShipmentTypeService {
 
 	@Autowired
 	private IShipmentTypeDao dao;
-	
-	
-	
+
 	@Override
 	@Transactional
 	public Integer saveShipmentType(ShipmentType ob) {
-	
+
 		return dao.saveShipmentType(ob);
 	}
-	
-	
+
 	@Override
-	@Transactional(readOnly=true)
+	@Transactional(readOnly = true)
 	public List<ShipmentType> getAllShipmentTypes() {
-	
-		List<ShipmentType> list=dao.getAllShipmentTypes();
-		Collections.sort(list,(o1,o2)->o1.getShipId()-o2.getShipId());
+
+		List<ShipmentType> list = dao.getAllShipmentTypes();
+		Collections.sort(list, (o1, o2) -> o1.getShipId() - o2.getShipId());
 		return list;
 	}
-	
+
 	@Override
 	@Transactional
 	public void deleteShipmentType(Integer id) {
 		dao.deleteShipmentType(id);
 	}
-	
+
 	@Override
-	@Transactional(readOnly=true)
+	@Transactional(readOnly = true)
 	public ShipmentType getOneShipmentType(Integer id) {
-	
+
 		return dao.getOneShipmentType(id);
 	}
-	
+
 	@Override
 	@Transactional
 	public void updateShipmentType(ShipmentType ob) {
 		dao.updateShipmentType(ob);
-		
+
 	}
-	
+
 	@Override
 	public List<Object[]> getShipmentModeCount() {
-	
+
 		return dao.getShipmentModeCount();
 	}
 
 	@Override
 	@Transactional(readOnly = true)
 	public List<Object[]> getShipIdAndCode() {
-	
+
 		return dao.getShipIdAndCode();
 	}
+	
+
+	@Override
+	public boolean isShipCodeExist(String shipCode) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
