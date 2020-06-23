@@ -27,9 +27,7 @@
 							Customer
 						</div>
 
-						<div class="col-4">
-							<!-- error message -->
-						</div>
+						<div class="col-4" id="userTypeError"></div>
 					</div>
 
 
@@ -43,9 +41,7 @@
 							<form:input path="userCode" class="form-control" />
 						</div>
 
-						<div class="col-4">
-							<!-- error message -->
-						</div>
+						<div class="col-4" id="userCodeError"></div>
 					</div>
 
 
@@ -56,12 +52,10 @@
 						</div>
 
 						<div class="col-4">
-							<form:input path="userFor" class="form-control" />
+							<form:input path="userFor" class="form-control" readonly="true" />
 						</div>
 
-						<div class="col-4">
-							<!-- error message -->
-						</div>
+						<div class="col-4" id="userForError"></div>
 					</div>
 
 					<div class="row">
@@ -150,8 +144,9 @@
 					<div class="row">
 						<div class="col-4"></div>
 						<div class="col-4">
-							<input type=submit value="CREATE USER" class="btn btn-success" />
-							<input type="reset" value="CLEAR" class="btn btn-danger">
+							<input type=submit value="CREATE USER" id="Create"
+								class="btn btn-success" /> <input type="reset" value="CLEAR"
+								class="btn btn-danger">
 						</div>
 					</div>
 				</form:form>
@@ -166,5 +161,100 @@
 		<!-- card -->
 	</div>
 	<!-- container -->
+
+	<script>
+		$(document)
+				.ready(
+						function() {
+
+							$("#userTypeError").hide();
+							$("#userCodeError").hide();
+
+							var userTypeError = false;
+							var userCodeError = false;
+
+							$('input[name="userType"][type="radio"]').change(
+									function() {
+										validate_userType();
+										autoFill_userFor();
+									});
+
+							$("#userCode").keyup(function() {
+								validate_userCode();
+
+							});
+
+							function autoFill_userFor() {
+								var val = $(
+										'input[name="userType"][type="radio"]:checked')
+										.val();
+
+								if (val == "Vendor") {
+									$("#userFor").val("Purchase");
+									$("#userFor").css("color", "blue");
+								} else if (val == "Customer") {
+									$("#userFor").val("Sale");
+									$("#userFor").css("color", "green");
+
+								}
+							}
+
+							function validate_userType() {
+								var val = $('input[name="userType"][type="radio"]:checked').length;
+
+								if (val == 0) {
+									$("#userTypeError").show();
+									$("#userTypeError").html(
+											"Select one <b>User Type</b>");
+									$("#userTypeError").css("color", "red");
+
+									userTypeError = false;
+
+								} else {
+									$("#userTypeError").hide();
+									userTypeError = true;
+								}
+
+								return userTypeError;
+
+							}
+
+							function validate_userCode() {
+								var val = $("#userCode").val();
+
+								if (val == '') {
+									$("#userCodeError").show();
+									$("#userCodeError").html(
+											"Enter <b> Wh User Code</b>");
+									$("#userCodeError").css("color", "red");
+
+									userCodeError = false;
+								} else {
+									$("#userCodeError").hide();
+									userCodeError = true;
+								}
+								return userCodeError;
+							}
+
+							$("#Create").click(
+									function() {
+
+										userTypeError = false;
+										userCodeError = false;
+
+										validate_userType();
+										validate_userCode();
+
+										if (userTypeError && userCodeError
+												&& userForError) {
+											return true;
+										} else {
+											return false;
+										}
+									});
+
+						});
+	</script>
+
 </body>
 </html>
