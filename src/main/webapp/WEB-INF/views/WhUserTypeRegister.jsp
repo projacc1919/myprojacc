@@ -68,9 +68,7 @@
 							<form:input path="userEmail" class="form-control" />
 						</div>
 
-						<div class="col-4">
-							<!-- error message -->
-						</div>
+						<div class="col-4" id="userEmailError"></div>
 					</div>
 
 
@@ -84,9 +82,7 @@
 							<form:input path="userContact" class="form-control" />
 						</div>
 
-						<div class="col-4">
-							<!-- error message -->
-						</div>
+						<div class="col-4" id="userContactError"></div>
 					</div>
 
 					<div class="row">
@@ -105,9 +101,7 @@
 							</form:select>
 						</div>
 
-						<div class="col-4">
-							<!-- error message -->
-						</div>
+						<div class="col-4" id="userIdTypeError"></div>
 					</div>
 
 					<div class="row">
@@ -117,12 +111,10 @@
 						</div>
 
 						<div class="col-4">
-							<form:input path="ifOther" class="form-control" />
+							<form:input path="ifOther" readonly="true" class="form-control" />
 						</div>
 
-						<div class="col-4">
-							<!-- error message -->
-						</div>
+						<div class="col-4" id="ifOtherError"></div>
 					</div>
 
 
@@ -136,9 +128,7 @@
 							<form:input path="idNum" class="form-control" />
 						</div>
 
-						<div class="col-4">
-							<!-- error message -->
-						</div>
+						<div class="col-4" id="idNumError"></div>
 					</div>
 
 					<div class="row">
@@ -169,9 +159,17 @@
 
 							$("#userTypeError").hide();
 							$("#userCodeError").hide();
+							$("#userEmailError").hide();
+							$("#userContactError").hide();
+							$("#userIdTypeError").hide();
+							$("#idNumError").hide();
 
 							var userTypeError = false;
 							var userCodeError = false;
+							var userEmailError = false;
+							var userContactError = false;
+							var userIdTypeError = false;
+							var idNumError = false;
 
 							$('input[name="userType"][type="radio"]').change(
 									function() {
@@ -182,6 +180,22 @@
 							$("#userCode").keyup(function() {
 								validate_userCode();
 
+							});
+
+							$("#userEmail").keyup(function() {
+								validate_userEmail();
+							});
+
+							$("#userContact").keyup(function() {
+								validate_userContact();
+							});
+
+							$("#userIdType").change(function() {
+								validate_userIdType();
+							});
+
+							$("#idNum").keyup(function() {
+								validate_idNum();
 							});
 
 							function autoFill_userFor() {
@@ -236,17 +250,103 @@
 								return userCodeError;
 							}
 
+							function validate_userEmail() {
+								var val = $("#userEmail").val();
+
+								if (val == '') {
+									$("#userEmailError").show();
+									$("#userEmailError").html(
+											"Enter <b>User Email</b>");
+									$("#userEmailError").css("color", "red");
+
+									userEmailError = false;
+								} else {
+									$("#userEmailError").hide();
+									userEmailError = true;
+								}
+								return userEmailError;
+							}
+
+							function validate_userContact() {
+								var val = $("#userContact").val();
+
+								if (val == '') {
+									$("#userContactError").show();
+									$("#userContactError").html(
+											"Enter <b>User Contact</b>");
+									$("#userContactError").css("color", "red");
+									userContactError = false;
+								} else {
+									$("#userContactError").hide();
+									userContactError = true;
+								}
+								return userContactError;
+
+							}
+
+							function validate_userIdType() {
+								var val = $("#userIdType").val();
+
+								if (val == '') {
+									$("#userIdTypeError").show();
+									$("#userIdTypeError").html(
+											"Select one <b>user ID type</b>");
+									$("#userIdTypeError").css("color", "red");
+									userIdTypeError = false;
+								} else {
+									$("#userIdTypeError").hide();
+									userIdTypeError = true;
+								}
+
+								if (val == 'Other') {
+									$("#ifOther").attr("readonly", false);
+								} else {
+									$("#ifOther").val('');
+									$("#ifOther").attr("readonly", true);
+								}
+								return userIdTypeError;
+							}
+
+							function validate_idNum() {
+								var val = $("#idNum").val();
+
+								if (val == '') {
+									$("#idNumError").show();
+									$("#idNumError").html(
+											"Enter the <b>ID Number</b>");
+									$("#idNumError").css("color", "red");
+									idNumError = false;
+								} else {
+									$("#idNumError").hide();
+									idNumError = true;
+								}
+								return idNumError;
+							}
+
 							$("#Create").click(
 									function() {
 
 										userTypeError = false;
 										userCodeError = false;
+										userEmailError = false;
+										userContactError = false;
+										userIdTypeError = false;
+										ifOtherError = false;
+										idNumError = false;
 
 										validate_userType();
 										validate_userCode();
+										validate_userEmail();
+										validate_userContact();
+										validate_userIdType();
+										validate_idNum();
 
 										if (userTypeError && userCodeError
-												&& userForError) {
+												&& userForError
+												&& userEmailError
+												&& userContactError
+												&& userIdTypeError
+												&& idNumError) {
 											return true;
 										} else {
 											return false;
