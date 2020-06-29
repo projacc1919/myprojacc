@@ -200,9 +200,9 @@
 					function validate_userType() {
 						var val = $(
 								'input[name="userType"][type="radio"]:checked')
-								.val();
+								.length;
 
-						if (val == '') {
+						if (val == 0) {
 							$("#userTypeError").show();
 							$("#userTypeError").html(
 									"Choose one <b>User Type</b>");
